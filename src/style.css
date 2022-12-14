@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   padding: 0;
   margin: 0;
@@ -12,7 +16,7 @@ p {
 .app-header {
   display: flex;
   justify-content: space-between;
-  background-color: #4caf50;
+  background-color: #4c9baf;
   height: 70px;
   margin-bottom: 50px;
   padding-top: 10px;

@@ -1,5 +1,8 @@
 import React from 'react';
 
-export default function Cart() {
-  return <div className="cart">1</div>;
+export default function Cart({ cartProducts }) {
+  const productCount = () => {
+    return cartProducts.length;
+  };
+  return <div className="cart">{productCount()}</div>;
 }

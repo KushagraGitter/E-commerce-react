@@ -1,7 +1,7 @@
 import React from 'react';
 import useFetch from '../hooks/useFetch';
 
-export default function ProductList({ products }) {
+export default function ProductList({ products, handleAddToCart }) {
   return (
     <ul className="product-list">
       {' '}
@@ -13,7 +13,12 @@ export default function ProductList({ products }) {
               <img src={product.image} height={300} width={300}></img>
               <p>{product.description}</p>
               <p>{product.price}</p>
-              <button className="product-item-addtocart">Add To Cart</button>
+              <button
+                className="product-item-addtocart"
+                onClick={() => handleAddToCart(product.id)}
+              >
+                Add To Cart
+              </button>
             </div>
           </li>
         );

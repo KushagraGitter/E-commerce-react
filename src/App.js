@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './style.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import useFetch from './hooks/useFetch';
 import ProductList from './components/ProductList';
+import ProductDetail from './components/ProductDetail';
 import Header from './components/Header';
 import SearchBox from './components/SearchBox';
 import Cart from './components/Cart';
@@ -39,14 +41,27 @@ export default function App() {
         <SearchBox handleSearch={handleSearch} />
         <Cart cartProducts={cartProducts} />
       </Header>
-      <div>
-        {displayProducts && (
-          <ProductList
-            products={displayProducts}
-            handleAddToCart={handleAddToCart}
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <div>
+                {displayProducts && (
+                  <ProductList
+                    products={displayProducts}
+                    handleAddToCart={handleAddToCart}
+                  />
+                )}
+              </div>
+            }
           />
-        )}
-      </div>
+          <Route
+            path="/productDetail/:id"
+            element={<ProductDetail products={displayProducts} />}
+          />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
